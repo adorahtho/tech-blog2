@@ -5,7 +5,7 @@ const newFormHandler = async (event) => {
   const blog_post = document.querySelector('#blogPost').value.trim();
 
   if (title && blog_post) {
-    const response = await fetch(`/api/blogs`, {
+    const response = await fetch(`/api/dashboard`, {
       method: 'POST',
       body: JSON.stringify({ title, blog_post }),
       headers: {
@@ -14,7 +14,7 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to create project');
     }
@@ -30,7 +30,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to delete project');
     }
@@ -38,7 +38,7 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .querySelector('.new-project-form')
+  .querySelector('.new-blog-form')
   .addEventListener('submit', newFormHandler);
 
 // document

@@ -1,7 +1,7 @@
-{{#if loggedIn}}
+{{#if logged_in}}
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
+  <a>{{name}}</a>
+  {{!-- <p>{{{get_emoji}}}</p> --}}
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>

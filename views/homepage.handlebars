@@ -1,7 +1,8 @@
 <h1>Homepage test</h1>
 {{#each blogs}}
-<h2>{{title}}</h2>
+{{!-- when user clicks title, they get routed to the clicked blog post --}}
+<a href="">{{title}}</a>
 <p>{{format_date date_created}}</p>
 <p>{{user.username}}</p>
-<p>{{blog_post}}</p>
+{{!-- <p>{{blog_post}}</p> --}}
 {{/each}}
