@@ -35,12 +35,15 @@ router.get('/blog/:id', async (req, res) => {
           model: User,
           attributes: ['username'],
         },
+        {
+          model: Blog,
+          
+        }
       ],
     });
 
     const blog = blogData.get({ plain: true });
-
-    res.render('blogs', {
+    res.render('blog-post', {
       ...blog,
       logged_in: req.session.logged_in
     });
