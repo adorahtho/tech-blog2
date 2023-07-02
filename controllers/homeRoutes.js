@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// GET all blog posts
 router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
-
+console.log(blogs)
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       blogs, 
@@ -27,6 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET a single blog post
 router.get('/blog/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -35,10 +37,10 @@ router.get('/blog/:id', async (req, res) => {
           model: User,
           attributes: ['username'],
         },
-        {
-          model: Blog,
+        // {
+        //   model: Blog,
           
-        }
+        // }
       ],
     });
 
@@ -52,6 +54,7 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
+// Dashboard
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -71,6 +74,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+// Login
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -81,6 +85,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Sign up
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/profile');
@@ -89,10 +94,14 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 })
 
+// Dashboard
 router.get('/blogs', withAuth, (req, res) => {
   res.render('profile', {
-    name: req.session.username
+    name: req.session.username,
+    logged_in: true
   });
 })
 
 module.exports = router;
+
+// logged_in: true... shows the logout button when user is logged in
