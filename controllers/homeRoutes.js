@@ -36,11 +36,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
         {
           model: User,
           attributes: ['username'],
-        },
-        // {
-        //   model: Blog,
-          
-        // }
+        }
       ],
     });
 
