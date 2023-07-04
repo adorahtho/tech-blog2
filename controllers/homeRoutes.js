@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all blog posts
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
-console.log(blogs)
+
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       blogs, 

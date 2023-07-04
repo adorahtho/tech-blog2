@@ -11,11 +11,11 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    comment: {
+    // title: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    comment_post: {
       type: DataTypes.STRING,
     },
     date_created: {
@@ -43,8 +43,8 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blog',
+    modelName: 'comment',
   }
 );
 
-module.exports = Blog;
+module.exports = Comment;

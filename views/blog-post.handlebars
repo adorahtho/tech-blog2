@@ -1,7 +1,25 @@
 {{!-- <h1>Single Blog test</h1> --}}
-{{!-- {{#each blogs}} --}}
+
 <h2>{{title}}</h2>
 <p>{{format_date date_created}}</p>
 <p>{{user.username}}</p>
 <p>{{blog_post}}</p>
-{{!-- {{/each}} --}}
+<br>
+<br>
+
+{{!-- where comments appear once submitted --}}
+
+<div class="row mt-4">
+  <div class="col-md-6">
+  <form class="form new-comment-form">
+    <div class="form-group">
+      <label for="comment">Add a Comment:</label>
+      <br>
+      <textarea class="form-input" id="add-comment" name="comment"></textarea>
+    </div>
+    <br>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
