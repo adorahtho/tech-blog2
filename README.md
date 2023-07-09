@@ -39,6 +39,9 @@ Install the following packages in the terminal:
 8. npm install connect-session-sequelize  
 9. npm install express-session
 
+## Deployed Application
+
+https://mysterious-taiga-37461-9291064b0862.herokuapp.com/ 
 ## Author & Acknowledgements
 
 * https://github.com/thoak90codes
