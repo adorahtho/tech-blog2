@@ -38,3 +38,8 @@ Install the following packages in the terminal:
 7. npm install express-session  
 8. npm install connect-session-sequelize  
 9. npm install express-session
+
+## Author & Acknowledgements
+
+* https://github.com/thoak90codes
+* UW Coding Bootcamp
