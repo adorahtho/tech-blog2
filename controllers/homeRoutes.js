@@ -23,7 +23,6 @@ router.get('/', async (req, res) => {
       blogs, 
       logged_in: req.session.logged_in 
     });
-    console.log(blogs)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -37,11 +36,18 @@ router.get('/blog/:id', withAuth, async (req, res) => {
         {
           model: User,
           attributes: ['username'],
+        },
+        {
+          model: Comment,
+          attributes: ['comment_post']
         }
       ],
     });
 
     const blog = blogData.get({ plain: true });
+
+    // const comments = commentData.get({ plain: true})
+
     res.render('blog-post', {
       ...blog,
       logged_in: req.session.logged_in

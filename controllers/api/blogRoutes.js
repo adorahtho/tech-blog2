@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
 
+// post new blog on homepage
 router.post('/', async (req, res) => {
   try {
     const newBlog = await Blog.create({
       ...req.body,
       user_id: req.session.user_id,
     });
-console.log(newBlog)
     res.status(200).json(newBlog);
   } catch (err) {
     res.status(400).json(err);
@@ -33,5 +33,18 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.post('/', async (req, res) => {
+//   try {
+//     const newBlog = await Blog.create({
+//       ...req.body,
+//       user_id: req.session.user_id,
+//     });
+// console.log(newBlog)
+//     res.status(200).json(newBlog);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 module.exports = router;
