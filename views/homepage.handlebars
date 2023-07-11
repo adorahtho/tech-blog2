@@ -1,7 +1,8 @@
 {{#each blogs}}
 {{!-- when user clicks title, they get routed to the clicked blog post --}}
-<a href="/blog/{{id}}">{{title}}</a>
-<p>{{format_date createdAt}}</p>
-<p>{{user.username}}</p>
-{{!-- <p>{{blog_post}}</p> --}}
+<div class="blog-border">
+  <a href="/blog/{{id}}">{{title}}</a>
+  <p>{{format_date createdAt}}</p>
+  <p>{{user.username}}</p>
+</div>>
 {{/each}}

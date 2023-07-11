@@ -9,6 +9,14 @@ router.get('/', async (req, res) => {
     const blogData = await Blog.findAll({
       include: [
         {
+          model: Comment,
+          attributes: ['id', 'comment_post', 'blog_id', 'user_id'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        },
+        {
           model: User,
           attributes: ['username'],
         },
@@ -39,6 +47,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
         },
         {
           model: Comment,
+          include: [User],
           attributes: ['comment_post']
         }
       ],
